@@ -11,6 +11,8 @@ TagManager:
   - rekor
   - playerTop
   - dusmanCan
+  - sayac
+  - duvar
   layers:
   - Default
   - TransparentFX

@@ -23,7 +23,8 @@ public class Player : MonoBehaviour
 
         topFirlat(mousePosition);
     }
-    public float zaman=5f;
+    [SerializeField] private float zaman=1f;
+    public Text zamanYaz;
     public GameObject [] prefabs;
     public void topFirlat(Vector2 pos)
     {
@@ -31,11 +32,13 @@ public class Player : MonoBehaviour
         {
             zaman -=Time.deltaTime;
         }
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && zaman<=0)
         {
+            zaman=1f;
             int salla=Random.Range(0,prefabs.Length);
             var x=Instantiate(prefabs[salla],this.transform.position,Quaternion.identity);
         }
+        GameObject.FindWithTag("sayac").GetComponent<Text>().text =zaman.ToString();
     }
     public AudioClip BoomSound;
     public GameObject[] patlama;
